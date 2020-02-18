@@ -1,6 +1,4 @@
-# webpack.dcp
-
-Webpack bundle based on [this bundle](https://github.com/vedees/webpack-template)
+# Windows login screen
 
 ## Usage:
 
