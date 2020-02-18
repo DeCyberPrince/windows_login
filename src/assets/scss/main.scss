@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+#lock,
+#login {
+  height: 100vh;
+  width: 100vw;
+  transition: 0.5s;
+  position: absolute;
+  background: url('/assets/img/background.jpg');
+}
+
+#lock {
+  z-index: 10;
+  transform: translateY(0%);
+  #timedate {
+    position: absolute;
+    color: #ffffff;
+    bottom: 10%;
+    left: 5%;
+    #time {
+      font-weight: 400;
+      font-size: 5rem;
+    }
+    #date {
+      font-size: 3rem;
+      font-weight: 300;
+    }
+  }
+}
+
+#login {
+  z-index: 0;
+  .background {
+    background: url('/assets/img/background.jpg');
+    filter: blur(1.2rem);
+    transform: scale(1.1);
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+  }
+  #close {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    cursor: pointer;
+    font-size: 24px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba($color: #ffffff, $alpha: 0.3);
+    &:hover {
+      color: rgba($color: #ffffff, $alpha: 0.6);
+    }
+  }
+}
