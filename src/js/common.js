@@ -3,6 +3,7 @@ const login = document.getElementById('login');
 const close = document.getElementById('close');
 const time = document.getElementById('time');
 const date = document.getElementById('date');
+const pass = document.getElementById('passInput');
 
 let hammer = new Hammer(lock);
 hammer.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -20,6 +21,7 @@ lock.addEventListener('keydown', e => {
 close.addEventListener('click', () => {
   lock.style.transform = 'translateY(0%)';
   lock.focus();
+  pass.value = '';
 });
 
 function init() {
