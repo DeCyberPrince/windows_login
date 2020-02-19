@@ -33,10 +33,13 @@
       width: 250px;
       font-size: 1.2rem;
       border: none;
-      border-radius: 30px;
-      padding: 5px 10px;
+      border-radius: 15px;
+      padding: 10px 15px;
       font-weight: 300;
       color: rgb(30, 30, 30);
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

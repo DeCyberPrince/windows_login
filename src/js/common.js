@@ -1,18 +1,21 @@
+import getDateTime from './datetime';
+
 const lock = document.getElementById('lock');
 const login = document.getElementById('login');
 const close = document.getElementById('close');
 const time = document.getElementById('time');
 const date = document.getElementById('date');
 const pass = document.getElementById('passInput');
+const name = document.getElementById('name');
+const background = document.getElementById('background');
 
-let hammer = new Hammer(lock);
-hammer.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
-hammer.on('panup', () => {
-  lock.style.transform = `translateY(-100%)`;
-});
-
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const config = {
+  user: 'DeCyberPrince',
+  background() {
+    return `url('${this.backgroundPath}'`;
+  },
+  backgroundPath: '/assets/img/background.jpg'
+};
 
 lock.addEventListener('keydown', e => {
   e.target.style.transform = `translateY(-100%)`;
@@ -21,38 +24,38 @@ lock.addEventListener('keydown', e => {
 close.addEventListener('click', () => {
   lock.style.transform = 'translateY(0%)';
   lock.focus();
-  pass.value = '';
+  setTimeout(() => {
+    pass.value = '';
+  }, 500);
 });
 
 function init() {
+  name.innerText = config.user;
+
+  lock.style.background = config.background();
+  background.style.background = config.background();
+  lock.style.backgroundSize = 'cover';
+  background.style.backgroundSize = 'cover';
+
+  console.log(background.style.background);
+
   lock.focus();
   date.innerText = getDateTime().date();
   time.innerText = getDateTime().time();
-}
 
-function getDateTime(now = new Date(Date.now())) {
-  return {
-    date() {
-      return `${weekDays[now.getDay()]}, ${Months[now.getMonth()]} ${now.getDate()}`;
-    },
-    time() {
-      let hours = now.getHours();
-      let minutes = now.getMinutes();
-      let ampm = hours >= 12 ? 'PM' : 'AM';
-      hours %= 12;
-      hours = hours ? hours : 12;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-      return `${hours}:${minutes} ${ampm}`;
-    }
-  };
-}
+  const hammer = new Hammer(lock);
+  hammer.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
+  hammer.on('panup', () => {
+    lock.style.transform = `translateY(-100%)`;
+  });
 
-init(
   setInterval(() => {
     date.innerText = getDateTime().date();
     time.innerText = getDateTime().time();
-  }, 5000)
-);
+  }, 5000);
+}
+
+init();
 
 // background.addEventListener('mousemove', e => {
 //   let x = e.pageX;

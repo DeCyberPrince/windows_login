@@ -1,6 +1,6 @@
 {
-  "name": "Windows Login Screen",
-  "version": "0.0.1",
+  "name": "windows_login",
+  "version": "0.1.0",
   "description": "DeCyberPrince webpack bundle",
   "main": "index.js",
   "scripts": {
