@@ -14,6 +14,10 @@ export default function(now = new Date(Date.now())) {
       hours = hours || 12;
       minutes = minutes < 10 ? '0' + minutes : minutes;
       return `${hours}:${minutes} ${ampm}`;
+    },
+    update: function(timeElem, dateElem) {
+      dateElem.innerText = this.date();
+      timeElem.innerText = this.time();
     }
   };
 }

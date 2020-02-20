@@ -1,7 +1,7 @@
 {
-  "name": "windows_login",
+  "name": "main.page",
   "version": "0.1.0",
-  "description": "DeCyberPrince webpack bundle",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config ./build/webpack.config.dev.js",
@@ -11,16 +11,8 @@
     "> 1%",
     "last 3 version"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DeCyberPrince/windows_login.git"
-  },
   "author": "DeCyberPrince",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DeCyberPrince/windows_login/issues"
-  },
-  "homepage": "https://github.com/DeCyberPrince/windows_login#readme",
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
@@ -57,7 +49,6 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
     "hammerjs": "^2.0.8"
   }
 }
